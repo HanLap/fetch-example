@@ -1,13 +1,8 @@
 import "./App.css";
-import { useQuery } from "@tanstack/react-query";
-import { api } from "./lib/api";
-import { JokeResponse } from "./types/Types";
+import { useGetJoke } from "./hooks/useApi";
 
 function App() {
-  const { data, isLoading, refetch } = useQuery<JokeResponse>({
-    queryKey: ["joke"],
-    queryFn: () => api("/"),
-  });
+  const { data, isLoading, refetch } = useGetJoke();
 
   return (
     <div>
